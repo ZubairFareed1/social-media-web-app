@@ -1,16 +1,23 @@
-import Image from "next/image";
+'use client';
+import { usePathname } from "next/navigation";
+import {useEffect } from 'react'
+
+import './globals.css'
 
 export default function Home() {
+  const pathname = usePathname();
+  useEffect(()=>{
+    if (pathname == "/") {
+      window.location.href = "/feed";
+    }
+
+  },[])
+
+
+
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
-      <Image
-        src="/next.svg"
-        alt="Next.js Logo"
-        width={200}
-        height={200}
-        priority
-      />
+      <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>   
     </div>
       );
 }
